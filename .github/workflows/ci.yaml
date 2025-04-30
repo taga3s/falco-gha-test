@@ -12,14 +12,10 @@ jobs:
       # - run: |
       #     curl -L -o ./falco https://github.com/ysugimoto/falco/releases/download/v1.15.0/falco-$(uname | tr '[:upper:]' '[:lower:]')-$(if [ $(arch) = arm64 ]; then echo arm64; else echo amd64; fi) && chmod +x ./falco
 
-      # - run: |
-      #     chmod +x ./dist/falco
+      - run: |
+          chmod +x ./dist/falco
 
-      # - name: Run tests
-      #   run: |
-      #     ./dist/falco test ./vcl/default.vcl
-
-      - name: Echo colorized text
+      - name: Run tests
         run: |
-          echo -e "\033[0;32m[Error] is green text\033[0m"
-          echo -e "[Error] is red text"
+          ./dist/falco test ./vcl/default.vcl
+
