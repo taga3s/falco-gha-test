@@ -9,11 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         
-      # - run: |
-      #     curl -L -o ./falco https://github.com/ysugimoto/falco/releases/download/v1.15.0/falco-$(uname | tr '[:upper:]' '[:lower:]')-$(if [ $(arch) = arm64 ]; then echo arm64; else echo amd64; fi) && chmod +x ./falco
-
       - run: |
-          chmod +x ./dist/falco
+          curl -L -o ./falco https://github.com/ysugimoto/falco/releases/download/v1.16.0/falco-$(uname | tr '[:upper:]' '[:lower:]')-$(if [ $(arch) = arm64 ]; then echo arm64; else echo amd64; fi) && chmod +x ./falco
+
+      # - run: |
+      #     chmod +x ./dist/falco
 
       - name: Run tests
         run: |
